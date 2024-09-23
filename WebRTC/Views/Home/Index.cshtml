@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "WebRTC with ASP.NET Core";
+}
+
+
+
+<div class="roomCreate">
+    <label for="name">Room Name:</label>
+    <input type="text" id="roomNameTxt" />
+    <button id="createRoomBtn">Create</button>
+</div>
+
+<div>
+    <table id="roomTable" class="display" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="borderLine"></div>
+
+<div>
+    <div class="connectionStatus">
+        <p id="connectionStatusMessage">*You can create your own room or join the other room.</p>
+    </div>
+    <h5>Video chat</h5>
+    <div class="videoArea">
+        <video id="localVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+
+    <h5>File sharing</h5>
+    <div id="fileShare">
+        <input type="file" id="fileInput" />
+        <button id="sendFileBtn" class="sendFileBtn" disabled>Send</button>
+    </div>
+    <table id="fileTable" class="fileTable">
+        <thead>
+            <tr>
+                <th>Received Files</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <!-- Load jQuery and SignalR -->
+    <script type="text/javascript" src="~/Scripts/jquery-3.7.0.min.js" )"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.signalR-2.4.3.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <!-- Load WebRTC adapter -->
+    <!-- Load custom WebRTC script (ensure this is after jQuery, SignalR, and hubs script) -->
+    <!-- Simple datatable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/Scripts/webrtc.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" type="text/css" />
+
+}
